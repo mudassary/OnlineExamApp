@@ -1,0 +1,10 @@
+﻿@*@model OnlineExamApp.ViewModel.OptionViewModel*@
+@model OnlineExamApp.Business.ViewModel.ProposedAnswerViewModel
+
+@{
+    Layout = null;
+}
+<p>
+    @Html.CheckBoxFor(x => x.IsSelected)  @Model.Text
+    @Html.HiddenFor(x => x.ID)
+</p>

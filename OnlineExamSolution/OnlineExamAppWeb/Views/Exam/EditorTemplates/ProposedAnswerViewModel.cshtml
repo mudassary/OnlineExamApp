@@ -1,0 +1,9 @@
+﻿@model OnlineExamApp.Business.ViewModel.ProposedAnswerViewModel
+
+@{
+    Layout = null;
+}
+<p>
+    @Html.RadioButtonFor(x => x.Selected, Model.Text, new { Name = "ABC"})  @Model.Text 
+    @Html.HiddenFor(x => x.ID)   
+</p>

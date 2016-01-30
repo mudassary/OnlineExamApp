@@ -1,0 +1,29 @@
+﻿@model OnlineExamApp.Business.ViewModel.ExamResultViewModel
+
+@{
+    ViewBag.Title = "EvaluateExam";
+}
+
+<h2>Exam Result</h2>
+
+<table class="table">
+    <tr>
+        <th align="left" width="300">Question</th>
+        <th align="left">Result</th>
+    </tr>
+
+@for (int i = 0; i < Model.Results.Count; i++)
+{
+    <tr>
+        <td>@Model.Results[i].Question</td>        
+        <td>
+            @if(@Model.Results[i].Result)
+            { @Html.Label("Correct") }
+            else
+            {  @Html.Label("Incorrect");}
+        </td>
+    </tr>
+}
+</table>
+
+

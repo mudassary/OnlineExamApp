@@ -1,0 +1,45 @@
+﻿@model OnlineExamApp.Business.ViewModel.CandidateViewModel
+
+@{
+    ViewBag.Title = "Welcome";    
+}
+<br />
+<br />
+<br />
+<h2 class="text-primary">Welcome to Online Exam App !!</h2>
+@using (Html.BeginForm("StartTest", "Exam", FormMethod.Post)) 
+{
+    @Html.ValidationSummary(true)    
+    
+    <div >
+        @Html.Label("Please enter your Name")
+    </div>    
+    <div class="row col-md-3" >
+        @*@Ht   ml.TextBox("User", null, null, new { @class = "form-control",  id="UserInput"})*@
+        @Html.TextBoxFor(model => model.Name, new { id = "UserInput"})
+    </div>
+    <div>
+        <br />
+        <br />
+                
+        @*@Html.ActionLink("Start Test", "StartTest", "Exam", null, new { @class = "btn btn-primary btn-large", onclick = "return validateForm();" })*@
+        <input type="submit" value="Start Test" class="btn btn-primary btn-large" onclick="return validateForm();">
+    </div>
+}
+
+<script language="JavaScript" type="text/javascript">
+    {
+        function validateForm() {
+
+            var userInput = document.getElementById("UserInput").value;
+
+            if (userInput == null || userInput == "")
+            {
+                alert("Please enter your Name");
+                return false;
+            }
+
+            return true;
+        }
+    }
+</script>

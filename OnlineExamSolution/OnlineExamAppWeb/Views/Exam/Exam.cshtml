@@ -1,0 +1,78 @@
+﻿@model IEnumerable<OnlineExamApp.Business.ViewModel.ExamViewModel>
+
+@{
+    ViewBag.Title = "Exam";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">    
+  <p><h4 class="pull-left">Welcome @ViewBag.UserName !! </h4></p>
+ </div>
+<div class="row">
+  <p><h5>Hundereds of pre-configured exams waiting for you. Please feel free to add your own customized exams and share with others</h5></p>
+  <p><h5>Happy Learning :) </h5></p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <p class="primary"><h3>Technology</h3></p>
+    </div>
+    <div class="col-md-4">
+        <p class="primary"><h3>Domain</h3></p>
+    </div>
+    <div class="col-md-4">
+        <p class="primary"><h3>Others</h3></p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        @foreach (var exam in Model)
+        {
+            if (exam.Category == "Technology")
+            { 
+                <div class="list-group">
+                    <a href='@Url.Action("GetExamDetails", "Exam", new { examID = @exam.ID})' class="list-group-item list-group-item-info">
+                        <h4 class="list-group-item-heading"><span class="badge pull-right bg-primary">@exam.QuestionCount</span>@exam.Title</h4>
+                        <p class="list-group-item-text"><small>@exam.Description</small></p>
+                    </a>
+                </div>
+            }
+        }
+    </div>
+    <div class="col-md-4">
+        @foreach (var exam in Model)
+        {
+            if (exam.Category == "Domain")
+            {
+                <div class="list-group">
+                    <a href="#" class="list-group-item list-group-item-warning" onclick="GetExamDetails('@exam.Title');">
+                        <h4 class="list-group-item-heading"><span class="badge pull-right">@exam.QuestionCount</span>@exam.Title</h4>
+                        <p class="list-group-item-text"><small>@exam.Description</small></p>
+                    </a>
+                </div>
+            }
+        }
+    </div>
+    <div class="col-md-4">
+        @foreach (var exam in Model)
+        {
+            if (exam.Category == "Others")
+            {
+                <div class="list-group">
+                    <a href="#" class="list-group-item list-group-item-danger" onclick="GetExamDetails('@exam.Title');">
+                        <h4 class="list-group-item-heading"><span class="badge pull-right">@exam.QuestionCount</span>@exam.Title</h4>
+                        <p class="list-group-item-text"><small>@exam.Description</small></p>
+                    </a>
+                </div>
+            }
+        }
+    </div>
+</div>
+
+<script language="Javascript" type="text/javascript">
+
+    function GetExamDetails(title) {
+        alert(title);
+        @Url.Action("GetExamDetails", "Exam");
+    }
+</script>

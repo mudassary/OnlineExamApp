@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="51cf756e5e714b7ea604229e189aeee6" Name="Diagram1">
+        <EntityTypeShape EntityType="OnlineExamAppDBModel.Exam" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineExamAppDBModel.ExamDetail" Width="1.5" PointX="3" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineExamAppDBModel.ProposedAnswer" Width="1.5" PointX="3" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineExamAppDBModel.Question" Width="1.5" PointX="3" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineExamAppDBModel.QuestionAnswer" Width="2" PointX="5.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineExamAppDBModel.QuestionProposedAnswer" Width="2.25" PointX="5.25" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineExamAppDBModel.User" Width="1.5" PointX="0.75" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineExamAppDBModel.UserResponseDetail" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineExamAppDBModel.UserResponseHeader" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="OnlineExamAppDBModel.FK_ExamDetail_Exam" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineExamAppDBModel.FK_UserResponseHeader_Exam" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineExamAppDBModel.FK_ExamDetail_Question" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineExamAppDBModel.FK_QuestionProposedAnswer_ProposedAnswer" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineExamAppDBModel.FK_UserResponseDetail_ProposedAnswer" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineExamAppDBModel.FK_QuestionProposedAnswer_Question" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineExamAppDBModel.FK_UserResponseDetail_Question" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineExamAppDBModel.FK_UserResponseHeader_User" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineExamAppDBModel.FK_UserResponseDetail_UserResponseHeader" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineExamAppDBModel.FK_QuestionAnswer_ProposedAnswer" />
+        <AssociationConnector Association="OnlineExamAppDBModel.FK_QuestionAnswer_Question" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

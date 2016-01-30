@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/OnlineExamApp.Business.ViewModel" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/OnlineExamApp.Business.ViewModel" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="QuestionOptionsViewModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IsMultiChoice" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Options" nillable="true" type="tns:ArrayOfOptionViewModel" />
+      <xs:element minOccurs="0" name="Question" nillable="true" type="tns:QuestionViewModel" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="QuestionOptionsViewModel" nillable="true" type="tns:QuestionOptionsViewModel" />
+  <xs:complexType name="ArrayOfOptionViewModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OptionViewModel" nillable="true" type="tns:OptionViewModel" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOptionViewModel" nillable="true" type="tns:ArrayOfOptionViewModel" />
+  <xs:complexType name="OptionViewModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="IsSelected" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Selected" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Text" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OptionViewModel" nillable="true" type="tns:OptionViewModel" />
+  <xs:complexType name="QuestionViewModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Text" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="QuestionViewModel" nillable="true" type="tns:QuestionViewModel" />
+  <xs:complexType name="CandidateViewModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CandidateViewModel" nillable="true" type="tns:CandidateViewModel" />
+</xs:schema>

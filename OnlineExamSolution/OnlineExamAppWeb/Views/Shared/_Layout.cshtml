@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />    
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+</head>
+<body>  
+        
+            <div class="container">
+                <div class="row bg-primary">
+                    <div class="col-md-8  bg-primary">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <h2>Online Exam App</h2>
+                            </div>
+                        </div>
+                        <div class="row bg-primary">
+                            <div class="col-md-8">
+                                <p class="bg-primary">
+                                    <small>
+                                        Online Exam App is a place wherein you can attempt hundereds of pre-configured exams. 
+                                        Moreover, you can design/configure your own exams and submit your own questions. This is great and improved way of learning wherein you can evaluate your study efforts and at the same time share it with others to take full advantage of it.                                        
+                                    </small>
+                                </p>                                                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4" >
+                        <img src="~/Content/Learning_Large.jpg" alt="Image Not Found" height="180" width="380">
+                    </div>
+                </div>
+            </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav"></ul>
+                </div>
+            </div>        
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - Online Exam</p>
+            </footer>
+        </div>
+
+        <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+        <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>

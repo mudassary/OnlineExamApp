@@ -1,0 +1,98 @@
+﻿@*@model OnlineExamApp.ViewModel.QuestionOptionsViewModel*@
+@model   OnlineExamApp.Business.ViewModel.QuestionProposedAnswersViewModel
+
+@{
+    ViewBag.Title = "StartTest";
+}
+
+<div class="row">
+    <div class="col-md-6">
+        <h3 class="pull-left">User: @ViewBag.UserName </h3>
+    </div>
+    <div class="col-md-6">
+        <h3 class="pull-right">Exam: ASP.Net MVC</h3>
+    </div>
+</div>
+<hr />
+
+@using (Html.BeginForm("SaveUserResponse", "Exam", FormMethod.Post))
+{
+    <div id="datetime" class="text-primary pull-right"></div>
+    <br />
+    <div>
+        @*@Html.DisplayFor(model => model.Question.ID) .
+        @Html.DisplayFor(model => model.Question.Text)
+        @Html.HiddenFor(model => model.Question.ID)*@
+
+        @Html.DisplayFor(model => model.Question.ID) .
+        @Html.DisplayFor(model => model.Question.Text)
+        @Html.HiddenFor(model => model.Question.ID)
+    </div>
+    <hr />
+    /*foreach(var item in Model.Options)
+{
+    <div>
+        @Html.RadioButtonFor(model => item.IsSelected, new { Checked = item.IsSelected, Name = item.Text, value = item.ID })
+        @Html.Label(item.Text)
+    </div>
+    <br />
+} */
+
+    for (int i = 0; i < Model.ProposedAnswers.Count(); i++)
+    {
+        if (Model.IsMultiChoice)
+        {
+            @Html.EditorFor(model => model.ProposedAnswers[i], "ProposedAnswerViewModelMultiple")
+        }
+        else
+        {
+            @Html.EditorFor(model => model.ProposedAnswers[i], "ProposedAnswerViewModelMultiple")
+        }
+    }
+    <hr />
+    <p>
+        <br />
+        <br />
+        <input type="submit" value="Next Question" class="btn btn-primary btn-large" />
+        <input type="button" value="Timer" class="btn btn-primary btn-large" onclick="StartTimer();"/>
+    </p>
+}
+
+<script language="JavaScript" type="text/javascript">
+    var timer;
+    function StartTimer() {
+        //alert("asdasdsad")
+        //alert(getDateTime())
+        //alert(document.getElementById("datetime").innerHTML)
+        //alert(document.getElementById("datetime").innerText)
+        var timeSpan = new DateTime.Now();
+        alert(timeSpan);
+        document.getElementById("datetime").innerHTML = getDateTime();
+
+        // Do a $.ajax call and update start time in your database
+
+        timer = setTimeout(function () {
+            update();
+        }, 1000);
+
+    }
+
+    function update() {
+        document.getElementById("datetime").innerText = getDateTime();
+
+        timer = setTimeout(function () {
+            update();
+        }, 1000);
+    }
+
+    function getDateTime() {
+        var currentdate = new Date();
+        var datetime = "Timer: " + currentdate.getDate() + "/"
+                    + (currentdate.getMonth() + 1) + "/"
+                    + currentdate.getFullYear() + " "
+                    + currentdate.getHours() + ":"
+                    + currentdate.getMinutes() + ":"
+                    + currentdate.getSeconds();
+        return datetime;
+    }
+</script>
